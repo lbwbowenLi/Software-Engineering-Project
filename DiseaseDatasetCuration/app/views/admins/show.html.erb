@@ -1,0 +1,144 @@
+<div class = "row">
+  <h1>Admin</h1>
+  <hr>
+</div>
+<div class = "row">
+  <div class = "col-sm-6 text-center">
+    <h2>Group Operations</h2>
+
+      <div class = "row">
+        <div class = "col-sm-3 text-center">
+        
+        </div>
+        <div class = "col-sm-6 text-center">
+      <% if current_user.admin? %>
+        <br>
+        <%= link_to "Show Groups",groups_path, class: "btn btn-primary btn-block" %>
+        <% if !(current_user.group_admin?) %>
+          <hr>
+          <%= link_to "Promote/Demote Group Admin", '/admin/promote', class: "btn btn-danger  center-block" %><br>
+          <%= link_to "Choose Group Admin from Group", '/admin/promotewithgroup', class: "btn btn-success  center-block" %><br>
+          <%= link_to "Reassign Group Admins",'/admin/manage_group_admins_groups', class: "btn btn-success  center-block" %>
+        <% end %>
+      <% end %>        
+        </div>        
+        <div class = "col-sm-3 text-center">
+        </div>        
+      </div>
+    <hr>
+  </div>
+
+
+  <div class = "col-sm-6 text-center">
+    <h2>Datasets and Questions</h2>
+      <div class = "row">
+        <div class = "col-sm-3 text-center">
+        </div>
+        <div class = "col-sm-6 text-center">
+      <% if current_user.admin? %>
+        <br>
+        <%= link_to "Manage Dataset",'admin/managedata', class: "btn btn-primary btn-block" %>
+        <hr>
+        <%= link_to "Add Question",full_search_path, class: "btn btn-primary btn-block" %>
+      <% end %>    
+        </div>        
+        <div class = "col-sm-3 text-center">
+        </div>        
+      </div>
+    <hr>
+    <h2>Users</h2>    
+      <div class = "row">
+        <div class = "col-sm-3 text-center">
+        </div>
+        <div class = "col-sm-6 text-center">
+      <% if (current_user.admin?) && !(current_user.group_admin?) %>
+        <br>
+        <%= link_to "All Users","/admin/allusers", class: "btn btn-info btn-block" %>
+      <% end %>    
+        </div>        
+        <div class = "col-sm-3 text-center">
+        </div>        
+      </div>
+    <hr>    
+    
+  </div>
+</div>
+
+<div class = "row">
+  <h2>All Submissions</h2>
+</div>
+
+<div class = "row">
+  <div class = "col-sm-4">
+    <section class="group_manage">
+      <h3 style="text-align:left;">Result Format Config</h3>
+      <%= link_to "Configuration", '/config', class: "btn btn-primary" %>
+    </section>  
+    <hr>
+  </div>  
+  <div class = "col-sm-6"></div>
+
+  <div class = "col-sm-2">
+    <div class = row>
+      <h3 style="text-align:left;">Search By Email </h3>
+      <%= form_tag admins_show_path(), :method => :post, :id => "query_form" do%>
+      <%= search_field_tag 'search', nil, :class => 'special_input', :placeholder => 'Query...', :id => 'query' %>
+      <% end %>
+      <hr>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class = "row">
+  <div class = "col-sm-12">
+      <div class="table-responsive">
+        <table id="dvData" class = "table-bordered">
+          <thead>
+            <tr>
+              <th class = "col-md-3">Name</th>
+              <th class = "col-md-3">Accession</th>
+              <th class = "col-md-3"><%= link_to "Submission#", admins_show_path(:sort => "submission") %></th>
+              <th class = "col-md-1">Statistics</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @data.each do |ds,q| %> 
+              <tr>  
+                <td><%= ds[0] %>
+                <td><%= link_to ds[1], "http://www.ebi.ac.uk/arrayexpress/experiments/#{ds[1]}", :target => '_blank' %></td>
+                <td><%= @count[ds[1]] %>
+                <td><%= link_to 'Dataset Statistic', {:controller => 'admins', :action => 'dsstatistics', :qdata => q} %>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+
+
+<div class = "row"><hr></div>
+<div class = "row">
+  <div class = "col-sm-3">
+    <%= link_to '/profile',
+    :class => "btn btn-warning btn-block" do %>
+    <i class="glyphicon glyphicon-chevron-left"></i> Back to Profile...
+    <% end %>     
+  </div> 
+  <div class = "col-sm-5">
+
+  </div>
+  <div class = "col-sm-2">
+      <%= link_to "Download", "/admin/getcsv", :class => "btn btn-success btn-block" %>
+  </div>
+  <div class = "col-sm-2">
+      <%= link_to "Show All", "/admin", :class => "btn btn-info btn-block" %>
+  </div>
+</div>
+

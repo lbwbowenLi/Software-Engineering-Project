@@ -1,0 +1,87 @@
+<div class = "row">
+  <h2>Groups</h3>
+</div>
+<div>
+  <% if !@all_groups.nil? %>
+    <% @all_groups.each do |grp| %>
+      <%= render grp %>
+      <p>GroupAdmin: <%= grp.get_admins %><br>Group Users:</p>
+      <% if !grp.get_users.nil? %>
+        <div class = "row">
+          <div class = "col-sm-12">
+            <div class="table-responsive">
+              <table class = "table">
+                <thead>
+                  <tr>
+                    <th class = "col-md-1">ID</th>
+                    <th class = "col-md-4">Email</th>
+                    <th class = "col-md-3">Name</th>
+                    <th class = "col-md-1">Submission#</th>
+                    <th class = "col-md-1">Closed Submission</th>
+                    <th class = "col-md-1">Correct#</th>
+                    <th class = "col-md-1">Accuracy#</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render grp.get_users %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class = "col-sm-9">
+        </div>
+        <div class = "col-sm-1">
+          <%= link_to "Edit Group group_edit_path(grp)",'/admin', :class => "btn btn-primary button_wid" %>
+        </div>
+        <div class = "col-sm-1">
+          <%= link_to "Delete Group group_delete_path(grp)",'/admin', :class => "btn btn-primary button_wid" %>
+        </div>
+        <div  class = "col-sm-1">
+          <%= link_to "Statistics group_statics_path(grp)",'/admin', :class => "btn btn-primary button_wid" %>
+        </div>
+      </div>
+      
+      
+      
+      <hr>
+      
+      
+    <% end %>    
+  <% else %>
+    <h3>There's no groups yet!</h3>
+    <h3>Click <%= link_to "Here", '/group_create_path'%> to create a group</h3>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class = "row">
+  <div class = "col-sm-12">
+    <p><%= link_to "Back...", '/admin'%></p>
+  </div>
+</div>

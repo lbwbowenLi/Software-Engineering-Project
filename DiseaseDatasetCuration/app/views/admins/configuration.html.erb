@@ -1,0 +1,46 @@
+<div class = "row">
+  <h2>Configuration on Data Output Format</h3>
+  <hr>
+</div>
+
+<div class = "row">
+  <div class = "col-sm-4"> </div>
+  <div class = "col-sm-4">
+    <div class = "row">
+      <ul class="list-group">
+        <li class="list-group-item text-right"><span class="pull-left">
+          <strong>Number of rows each page:</strong></span>
+          <%=get_num_per_page%>
+        </li>
+        <li class="list-group-item text-right">
+          <span class="pull-left"><strong>Change to:</strong></span>
+          <%= form_tag config_update_path, :method => :post, :id => 'updateForm' do%>
+            <%= text_field_tag(:num_per_page) %>
+            <!-- <%= submit_tag 'Submit', :class => "btn btn-success button_wid"%> -->
+          <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class = "row">
+      <div class = "col-sm-9"> </div>
+      <div class = "col-sm-2">
+        <button id="submitBtn" class="btn btn-primary">Submit</button>
+      </div>
+      <div class = "col-sm-1"> </div>
+    </div>
+  </div>
+  <div class = "col-sm-4"> </div>
+</div>
+
+<hr>    
+<p><br><br><br></p>           
+<div class = "row">
+  <div class = "col-sm-2">
+    <%= link_to admins_show_path,
+    :class => "btn btn-warning btn-block" do %>
+    <i class="glyphicon glyphicon-chevron-left"></i> Back to Admin
+    <% end %>     
+  </div>  
+  <div class = "col-sm-10">
+  </div> 
+</div> 

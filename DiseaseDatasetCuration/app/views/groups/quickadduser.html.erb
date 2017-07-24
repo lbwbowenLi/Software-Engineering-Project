@@ -1,0 +1,64 @@
+<div class = "row">
+  <h3>Quickly Manage Users in Group: <small><%=@group.name%></small></h3>
+</div>
+
+<div class = "row">
+  <div class = "col-sm-5">
+    <h3>Users in the group:</h3>
+    <hr>
+    <%= form_for @group, :url=> quick_group_add_path, html: {:method => :post, :class => "ffgrp"} do |f| %>
+      <ul>
+        <% @group_users.each do |role| %>
+          <li>
+            Name: <%= h role.name -%>
+            Email: <%= role.email %>
+            <%= check_box_tag 'role_ids[]', role.id -%>
+          </li>
+        <% end %>
+      </ul>
+      <hr>
+      <%= submit_tag 'Delete selected', :class => "btn btn-success " %>
+    <% end %>
+    
+
+   
+  </div>
+  <div class = "col-sm-2"></div>
+  <div class = "col-sm-5">
+    <h3>Users not in the group:</h3> 
+    <hr>
+    <%= form_for @group, :url=> quick_group_add_path, html: {:method => :post, :class => "ffgrp"} do |f| %>
+      <ul>
+        <% @not_group_users.each do |role| %>
+          <li>
+            Name: <%= h role.name -%>
+            Email: <%= role.email %>
+            <%= check_box_tag 'n_role_ids[]', role.id -%>
+          </li>
+        <% end %>
+      </ul>
+      <hr>
+      <% if !@not_group_users.nil? %>
+        <%= will_paginate @not_group_users, renderer: BootstrapPagination::Rails %>
+      <% end  %>       
+      
+      <%= submit_tag 'Add selected', :class => "btn btn-success " %>
+    <% end %>
+
+
+
+  </div>
+</div>
+<hr>
+<div class = "row">
+    <div class = "col-sm-4"></div> 
+    <div class = "col-sm-4">
+
+    <%= link_to "Back to Groups", groups_path,
+      :class => "btn btn-block btn-warning "%>       
+    </div> 
+    <div class = "col-sm-4"></div> 
+</div>
+
+
+

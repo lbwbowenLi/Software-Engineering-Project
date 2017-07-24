@@ -1,0 +1,35 @@
+
+
+q1:
+  id: 1
+  qcontent: Question1
+  qanswer: 1
+  ds_name: Gene expression study in Positron Emission Tomography (PET) positive abdominal aortic aneurysms
+  ds_accession: E-MTAB-3175
+  closed: false
+  
+  
+q2:
+  id: 2
+  qcontent: Question2
+  qanswer: 1
+  ds_name: Gene expression study in Positron Emission Tomography (PET) positive abdominal aortic aneurysms
+  ds_accession: E-MTAB-3175
+  closed: false  
+
+q3:
+  id: 3
+  qcontent: Question3
+  qanswer: 3
+  ds_name: Gene expression study in Positron Emission Tomography (PET) positive abdominal aortic aneurysms
+  ds_accession: E-MTAB-3175
+  closed: false
+
+q4:
+  id: 4
+  qcontent: Question4
+  qanswer: 1
+  ds_name: Gene expression study in Positron Emission Tomography (PET) positive abdominal aortic aneurysms
+  ds_accession: E-MTAB-3175
+  closed: true
+

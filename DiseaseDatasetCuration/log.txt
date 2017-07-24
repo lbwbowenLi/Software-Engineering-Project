@@ -1,0 +1,101 @@
+2016-04-20T22:25:42.963077+00:00 heroku[api]: Set maintenance mode on by mashuo93@gmail.com
+2016-04-20T22:25:58.829287+00:00 heroku[api]: Starting process with command `bundle exec rake db:migrate` by mashuo93@gmail.com
+2016-04-20T22:26:01.539703+00:00 heroku[run.3944]: Awaiting client
+2016-04-20T22:26:01.558657+00:00 heroku[run.3944]: Starting process with command `bundle exec rake db:migrate`
+2016-04-20T22:26:01.798730+00:00 heroku[run.3944]: State changed from starting to up
+2016-04-20T22:26:05.923254+00:00 heroku[run.3944]: Process exited with status 0
+2016-04-20T22:26:05.944505+00:00 heroku[run.3944]: State changed from up to complete
+2016-04-20T22:26:07.607824+00:00 heroku[api]: Set maintenance mode off by mashuo93@gmail.com
+2016-04-20T22:26:14.580228+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=mighty-anchorage-26401.herokuapp.com request_id=475924bc-aa9a-4fc7-bc2c-a6a021275583 fwd="165.91.13.133" dyno= connect= service= status=503 bytes=
+2016-04-20T22:26:15.056226+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=mighty-anchorage-26401.herokuapp.com request_id=f82260e1-a189-4b6d-bd51-12ec3468d4f2 fwd="165.91.13.133" dyno= connect= service= status=503 bytes=
+2016-04-20T22:54:33.456170+00:00 heroku[web.1]: State changed from crashed to starting
+2016-04-20T22:54:36.528756+00:00 heroku[web.1]: Starting process with command `bundle exec puma -C config/puma.rb`
+2016-04-20T22:54:39.096449+00:00 app[web.1]: /app/vendor/bundle/ruby/2.2.0/gems/bundler-1.11.2/lib/bundler/rubygems_integration.rb:355:in `block in replace_bin_path': can't find executable puma (Gem::Exception)
+2016-04-20T22:54:39.096459+00:00 app[web.1]: 	from /app/vendor/bundle/bin/puma:16:in `<main>'
+2016-04-20T22:54:39.989356+00:00 heroku[web.1]: State changed from starting to crashed
+2016-04-20T22:54:39.965544+00:00 heroku[web.1]: Process exited with status 1
+2016-04-20T23:36:07.844320+00:00 heroku[web.1]: State changed from crashed to starting
+2016-04-20T23:36:10.649444+00:00 heroku[web.1]: Starting process with command `bundle exec puma -C config/puma.rb`
+2016-04-20T23:36:13.523993+00:00 app[web.1]: /app/vendor/bundle/ruby/2.2.0/gems/bundler-1.11.2/lib/bundler/rubygems_integration.rb:355:in `block in replace_bin_path': can't find executable puma (Gem::Exception)
+2016-04-20T23:36:13.524054+00:00 app[web.1]: 	from /app/vendor/bundle/bin/puma:16:in `<main>'
+2016-04-20T23:36:14.541325+00:00 heroku[web.1]: Process exited with status 1
+2016-04-20T23:36:14.570596+00:00 heroku[web.1]: State changed from starting to crashed
+2016-04-21T00:51:25.476381+00:00 heroku[web.1]: State changed from crashed to starting
+2016-04-21T00:51:29.171122+00:00 heroku[web.1]: Starting process with command `bundle exec puma -C config/puma.rb`
+2016-04-21T00:51:32.287089+00:00 app[web.1]: /app/vendor/bundle/ruby/2.2.0/gems/bundler-1.11.2/lib/bundler/rubygems_integration.rb:355:in `block in replace_bin_path': can't find executable puma (Gem::Exception)
+2016-04-21T00:51:32.287097+00:00 app[web.1]: 	from /app/vendor/bundle/bin/puma:16:in `<main>'
+2016-04-21T00:51:33.417715+00:00 heroku[web.1]: State changed from starting to crashed
+2016-04-21T00:51:33.419132+00:00 heroku[web.1]: State changed from crashed to starting
+2016-04-21T00:51:33.406284+00:00 heroku[web.1]: Process exited with status 1
+2016-04-21T00:51:35.923684+00:00 heroku[web.1]: Starting process with command `bundle exec puma -C config/puma.rb`
+2016-04-21T00:51:38.896609+00:00 app[web.1]: /app/vendor/bundle/ruby/2.2.0/gems/bundler-1.11.2/lib/bundler/rubygems_integration.rb:355:in `block in replace_bin_path': can't find executable puma (Gem::Exception)
+2016-04-21T00:51:38.896678+00:00 app[web.1]: 	from /app/vendor/bundle/bin/puma:16:in `<main>'
+2016-04-21T00:51:40.061432+00:00 heroku[web.1]: State changed from starting to crashed
+2016-04-21T00:51:40.046544+00:00 heroku[web.1]: Process exited with status 1
+2016-04-21T00:51:40.722818+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=mighty-anchorage-26401.herokuapp.com request_id=e2cd446f-094d-486a-bfa1-f4d1aab6a21e fwd="165.91.13.240" dyno= connect= service= status=503 bytes=
+2016-04-21T00:53:40.737206+00:00 heroku[api]: Starting process with command `rails console` by mashuo93@gmail.com
+2016-04-21T00:53:44.342242+00:00 heroku[run.6157]: Awaiting client
+2016-04-21T00:53:44.370254+00:00 heroku[run.6157]: Starting process with command `rails console`
+2016-04-21T00:53:44.525191+00:00 heroku[run.6157]: State changed from starting to up
+2016-04-21T00:56:53.583217+00:00 heroku[run.6157]: Process exited with status 0
+2016-04-21T00:56:53.616885+00:00 heroku[run.6157]: State changed from up to complete
+2016-04-21T00:56:55.416606+00:00 heroku[web.1]: State changed from crashed to starting
+2016-04-21T00:56:57.755701+00:00 heroku[web.1]: Starting process with command `bundle exec puma -C config/puma.rb`
+2016-04-21T00:56:59.839610+00:00 app[web.1]: /app/vendor/bundle/ruby/2.2.0/gems/bundler-1.11.2/lib/bundler/rubygems_integration.rb:355:in `block in replace_bin_path': can't find executable puma (Gem::Exception)
+2016-04-21T00:56:59.839658+00:00 app[web.1]: 	from /app/vendor/bundle/bin/puma:16:in `<main>'
+2016-04-21T00:57:00.618442+00:00 heroku[web.1]: State changed from starting to crashed
+2016-04-21T00:57:00.601285+00:00 heroku[web.1]: Process exited with status 1
+2016-04-21T00:57:01.674663+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=mighty-anchorage-26401.herokuapp.com request_id=c8ab1aad-ee98-48d5-b290-57522f4b86f1 fwd="165.91.13.240" dyno= connect= service= status=503 bytes=
+2016-04-21T01:03:08.550005+00:00 heroku[api]: Starting process with command `bundle install` by mashuo93@gmail.com
+2016-04-21T01:03:11.841325+00:00 heroku[run.7041]: Starting process with command `bundle install`
+2016-04-21T01:03:11.808357+00:00 heroku[run.7041]: Awaiting client
+2016-04-21T01:03:12.052634+00:00 heroku[run.7041]: State changed from starting to up
+2016-04-21T01:03:15.106621+00:00 heroku[run.7041]: State changed from up to complete
+2016-04-21T01:03:15.096830+00:00 heroku[run.7041]: Process exited with status 0
+2016-04-21T01:03:36.941998+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=mighty-anchorage-26401.herokuapp.com request_id=8c1c8634-401b-48d9-b4a8-a75b339c4a2d fwd="165.91.13.240" dyno= connect= service= status=503 bytes=
+2016-04-21T01:05:57.668289+00:00 heroku[slug-compiler]: Slug compilation started
+2016-04-21T01:05:57.668298+00:00 heroku[slug-compiler]: Slug compilation failed: failed to compile Ruby app
+2016-04-21T01:06:16.069008+00:00 heroku[web.1]: State changed from crashed to starting
+2016-04-21T01:06:18.366027+00:00 heroku[web.1]: Starting process with command `bundle exec puma -C config/puma.rb`
+2016-04-21T01:06:20.214599+00:00 app[web.1]: /app/vendor/bundle/ruby/2.2.0/gems/bundler-1.11.2/lib/bundler/rubygems_integration.rb:355:in `block in replace_bin_path': can't find executable puma (Gem::Exception)
+2016-04-21T01:06:20.214605+00:00 app[web.1]: 	from /app/vendor/bundle/bin/puma:16:in `<main>'
+2016-04-21T01:06:20.856616+00:00 heroku[web.1]: Process exited with status 1
+2016-04-21T01:06:20.869421+00:00 heroku[web.1]: State changed from starting to crashed
+2016-04-21T01:07:23.851510+00:00 heroku[slug-compiler]: Slug compilation started
+2016-04-21T01:07:23.851562+00:00 heroku[slug-compiler]: Slug compilation failed: failed to compile Ruby app
+2016-04-21T01:08:36.631315+00:00 heroku[api]: Deploy 3cb3ed5 by mashuo93@gmail.com
+2016-04-21T01:08:36.631315+00:00 heroku[api]: Release v9 created by mashuo93@gmail.com
+2016-04-21T01:08:36.828960+00:00 heroku[slug-compiler]: Slug compilation started
+2016-04-21T01:08:36.828970+00:00 heroku[slug-compiler]: Slug compilation finished
+2016-04-21T01:08:36.799068+00:00 heroku[web.1]: State changed from crashed to starting
+2016-04-21T01:08:39.746504+00:00 heroku[web.1]: Starting process with command `bundle exec puma -C config/puma.rb`
+2016-04-21T01:08:42.690049+00:00 app[web.1]: ...                               ^
+2016-04-21T01:08:42.690010+00:00 app[web.1]: /app/vendor/bundle/ruby/2.2.0/gems/puma-3.1.0/lib/puma/dsl.rb:26:in `instance_eval': config/puma.rb:1: syntax error, unexpected tIDENTIFIER, expecting end-of-input (SyntaxError)
+2016-04-21T01:08:42.690037+00:00 app[web.1]: ...NCURRENCY'] || 2) threads_count = Integer(ENV['MAX_THREADS']...
+2016-04-21T01:08:42.690058+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/gems/puma-3.1.0/lib/puma/dsl.rb:26:in `_load_from'
+2016-04-21T01:08:42.690058+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/gems/puma-3.1.0/lib/puma/dsl.rb:9:in `load'
+2016-04-21T01:08:42.690066+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/gems/puma-3.1.0/lib/puma/configuration.rb:207:in `block in load'
+2016-04-21T01:08:42.690067+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/gems/puma-3.1.0/lib/puma/configuration.rb:204:in `each'
+2016-04-21T01:08:42.690067+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/gems/puma-3.1.0/lib/puma/configuration.rb:204:in `load'
+2016-04-21T01:08:42.690068+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/gems/puma-3.1.0/lib/puma/launcher.rb:64:in `initialize'
+2016-04-21T01:08:42.690069+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/gems/puma-3.1.0/lib/puma/cli.rb:65:in `new'
+2016-04-21T01:08:42.690069+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/gems/puma-3.1.0/lib/puma/cli.rb:65:in `initialize'
+2016-04-21T01:08:42.690070+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/gems/puma-3.1.0/bin/puma:8:in `new'
+2016-04-21T01:08:42.690070+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/gems/puma-3.1.0/bin/puma:8:in `<top (required)>'
+2016-04-21T01:08:42.690081+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/bin/puma:23:in `load'
+2016-04-21T01:08:42.690082+00:00 app[web.1]: 	from /app/vendor/bundle/ruby/2.2.0/bin/puma:23:in `<main>'
+2016-04-21T01:08:43.677355+00:00 heroku[web.1]: State changed from starting to crashed
+2016-04-21T01:08:43.644298+00:00 heroku[web.1]: Process exited with status 1
+2016-04-21T01:08:50.300970+00:00 heroku[api]: Starting process with command `bundle install` by mashuo93@gmail.com
+2016-04-21T01:08:53.224764+00:00 heroku[run.7774]: Awaiting client
+2016-04-21T01:08:53.293118+00:00 heroku[run.7774]: Starting process with command `bundle install`
+2016-04-21T01:08:53.444203+00:00 heroku[run.7774]: State changed from starting to up
+2016-04-21T01:08:56.126106+00:00 heroku[run.7774]: State changed from up to complete
+2016-04-21T01:08:56.112769+00:00 heroku[run.7774]: Process exited with status 0
+2016-04-21T01:09:11.756727+00:00 heroku[api]: Starting process with command `bundle exec rake db:migrate` by mashuo93@gmail.com
+2016-04-21T01:09:15.187233+00:00 heroku[run.5521]: Starting process with command `bundle exec rake db:migrate`
+2016-04-21T01:09:15.158121+00:00 heroku[run.5521]: Awaiting client
+2016-04-21T01:09:15.426597+00:00 heroku[run.5521]: State changed from starting to up
+2016-04-21T01:09:21.098835+00:00 heroku[run.5521]: Process exited with status 0
+2016-04-21T01:09:21.128970+00:00 heroku[run.5521]: State changed from up to complete
+2016-04-21T01:10:03.988453+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=mighty-anchorage-26401.herokuapp.com request_id=461d26a6-1802-49de-b601-ce5f7988befd fwd="165.91.13.240" dyno= connect= service= status=503 bytes=

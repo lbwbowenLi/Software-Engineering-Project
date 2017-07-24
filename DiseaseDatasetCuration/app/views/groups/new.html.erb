@@ -1,0 +1,45 @@
+<div class = "row">
+  <h2>Creating a New Group:</h2>
+</div>
+<div class="row">
+  <div class = "col-sm-10">
+    <h3>Properties:</h3>
+    <p>
+    <%= form_for @group, url: {action: "create"}, html: {class: "ffgrp"} do |f| %>
+      <li>
+        <%= render 'shared/error_messages_grps' %>
+        <p><%= f.label "Group Name:" %>
+        <%= f.text_field :name %> </p>
+        <p><%= f.label "Group Descriptions:" %>
+        <%= f.text_area :description, size: "15x6" %></p>
+        <p><%= f.label "Group Level:" %>
+        <%= f.text_field :group_level %></p>
+        
+        <%= f.hidden_field :admin_uid, { :value => current_user.id} %>
+
+        
+        
+        <div class = "row">
+          <div class = "col-sm-6">
+            <%= submit_tag 'Save', :class => "btn btn-success " %>
+          </div>
+          <div class = "col-sm-6">
+            <%= link_to "Cancel Changes", groups_path,
+              :class => "btn btn-block btn-warning "%>
+          </div>  
+        </div>
+      </li>
+    <% end %> 
+    </p>
+    
+  </div>
+  <div class = "col-sm-2">
+    <h3></h3>
+  </div>
+</div>    
+    
+    
+    
+    
+
+

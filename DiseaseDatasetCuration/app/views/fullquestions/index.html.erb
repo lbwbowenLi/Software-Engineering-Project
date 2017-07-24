@@ -1,0 +1,37 @@
+<div class = "row">
+  <h1>Questions</h1>
+</div>
+<h4>Name: <%= link_to @name, "http://www.ebi.ac.uk/arrayexpress/experiments/#{@accession}", :target => '_blank' %></h4>
+<div class = "row">
+  <div class = "col-sm-12">
+    <div class="table-responsive">
+
+                <table class = "table-bordered">
+                  <thead>
+                    <tr>
+                      <th class = "col-md-1">Question ID</th>
+                      <th class = "col-md-2">Question Description</th>
+                      <th class = "col-md-1">Question Answer</th>
+                      <th class = "col-md-1">Closed?</th>
+                      <th class = "col-md-1">'Yes' Answer Users</th>
+                      <th class = "col-md-1">'No' Answer Users</th>
+                      <th class = "col-md-1">Total Users Answering this Problem</th>
+                      <th class = "col-md-1">Delete</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <% if @fullquestions %>            
+                      <% @fullquestions.each do |f_ques| %>            
+                        <%= render f_ques %>
+                      <%end %> 
+                    <% end %>   
+                  </tbody>
+                </table>
+
+    </div>
+  </div>
+</div>
+
+<hr>
+<%= link_to "Back to profile...", '/profile' %><br>
+<%= link_to "See All Submissions", fullsubmissions_path %>

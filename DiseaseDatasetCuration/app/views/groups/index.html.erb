@@ -1,0 +1,113 @@
+<div class = "row">
+  <h2>Groups</h2>
+</div>
+<div>
+  <% if !@all_groups.nil? %>
+    <% @all_groups.each do |grp| %>
+      <%= render grp %>
+      <p>GroupAdmin: 
+      <%= User.find_by_id(grp.admin_uid).name %>
+      <br>Group Users:</p>
+      
+      <% if !grp.get_users.nil? %>
+        <div class = "row">
+          <div class = "col-sm-12 text-center">
+            <div class="table-responsive">
+              <table class = "table-bordered">
+                <thead>
+                  <tr>
+                    <th class = "col-md-1 text-center">ID</th>
+                    <th class = "col-md-3 text-center">Email</th>
+                    <th class = "col-md-3 text-center">Name</th>
+                    <th class = "col-md-1 text-center">Submissions#</th>
+                    <th class = "col-md-1 text-center">Accuracy#</th>
+                    <th class = "col-md-1 text-center">Admin?</th>
+                    <th class = "col-md-1 text-center">Group Admin?</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render grp.get_users %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <p><br></p>
+      <div class="row">
+        <div class = "col-sm-2">
+        </div>
+        <div class = "col-sm-2">
+          <%= link_to quick_group_add_path(grp),
+          :class => "btn btn-primary btn-block" do %>
+          <i class="glyphicon glyphicon-plus"></i> Quick Manage Users
+          <% end %>
+        </div>        
+        <div class = "col-sm-2">
+          <%= link_to group_add_path(grp),
+          :class => "btn btn-primary btn-block" do %>
+          <i class="glyphicon glyphicon-plus"></i> Manage Users
+          <% end %>
+        </div>
+        <div class = "col-sm-2">
+          <%= link_to edit_group_path(grp),
+          :class => "btn btn-warning btn-block" do %>
+          <i class="glyphicon glyphicon-pencil"></i> Edit Group
+          <% end %>
+        </div>
+        <div class = "col-sm-2">
+            <%= link_to group_path(grp),
+            method: :delete, data: { confirm: "Are you sure?" },
+            :class => "btn btn-danger btn-block" do %>
+            <i class="glyphicon glyphicon-trash"></i> Delete Group
+            <% end %>
+          
+        </div>
+        <div  class = "col-sm-2">
+          <%= link_to admin_statistics_path(:group_id => grp.id),
+          :class => "btn btn-success btn-block" do %>
+          <i class="glyphicon glyphicon-stats"></i> Statistics
+          <% end %>
+        </div>
+      </div>
+      
+      
+      
+      <hr>
+      
+      
+    <% end %>    
+  <% else %>
+    <h3>There's no groups yet!</h3>
+    <h3>Click <%= link_to "Here", '/group_create_path'%> to create a group</h3>
+  <% end %>
+</div>
+
+
+<div class = "row">
+  <% if !@all_groups.nil? %>
+    <%= will_paginate @all_groups, renderer: BootstrapPagination::Rails %>
+  <% end  %>
+</div>
+
+
+<p><br></p>           
+<div class = "row">
+  <div class = "col-sm-3">
+    <%= link_to new_group_path,
+    :class => "btn btn-success btn-block" do %>
+    <i class="glyphicon glyphicon-plus"></i> Create a New Group...
+    <% end %><br>      
+      
+    <%= link_to admins_show_path,
+    :class => "btn btn-warning btn-block" do %>
+    <i class="glyphicon glyphicon-chevron-left"></i> Back to Admin
+    <% end %>
+    
+  </div>  
+  <div class = "col-sm-9">
+  </div> 
+</div>  
+
+
+

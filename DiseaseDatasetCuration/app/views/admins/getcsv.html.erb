@@ -1,0 +1,21 @@
+<div class = "row">
+  <h1> Get Closed Disease Submissions</h1>
+  <p>
+    Download Format:
+    <%= link_to "csv", admin_getcsv_path(format: "csv") %> |
+    <%= link_to "tsv", admin_getcsv_path(format: "tsv") %>
+  </p>    
+</div>
+
+
+<p><br><br><br></p>           
+<div class = "row">
+  <div class = "col-sm-2">
+    <%= link_to admins_show_path,
+    :class => "btn btn-warning btn-block" do %>
+    <i class="glyphicon glyphicon-chevron-left"></i> Back to Admin
+    <% end %>     
+  </div>  
+  <div class = "col-sm-10">
+  </div> 
+</div> 

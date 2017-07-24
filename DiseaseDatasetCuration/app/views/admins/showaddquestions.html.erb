@@ -1,0 +1,85 @@
+<div class = "row">
+  <h2>Questions</h3>
+</div>
+<div>
+  <% if !@all_addquestions.nil? %>
+    <% @all_addquestions.each do |grp| %>
+      <%= render grp %>
+      <p>QuestionAdmin: <%= grp.get_admins %><br>Question Users:</p>
+      <% if !grp.get_users.nil? %>
+        <div class = "row">
+          <div class = "col-sm-12">
+            <div class="table-responsive">
+              <table class = "table">
+                <thead>
+                  <tr>
+                    <th class = "col-md-1">ID</th>
+                    <th class = "col-md-4">Email</th>
+                    <th class = "col-md-3">Name</th>
+                    <th class = "col-md-1">Submission#</th>
+                    <th class = "col-md-1">Closed Submission</th>
+                    <th class = "col-md-1">Correct#</th>
+                    <th class = "col-md-1">Accuracy#</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render grp.get_users %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class = "col-sm-9">
+          
+        </div>
+        <div class = "col-sm-1">
+          <%= link_to "Edit Question addquestion_edit_path(grp)",'/admin', :class => "btn btn-primary button_wid" %>
+        </div>
+        <div class = "col-sm-1">
+          <%= link_to "Delete Question addquestion_delete_path(grp)",'/admin', :class => "btn btn-primary button_wid" %>
+        </div>
+      </div>
+      
+      
+      
+      <hr>
+      
+      
+    <% end %>    
+  <% else %>
+    <h3>There's no questions yet!</h3>
+    <h3>Click <%= link_to "Here", '/addquestion_create_path'%> to create a question</h3>
+  <% end %>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class = "row">
+  <div class = "col-sm-12">
+    <p><%= link_to "Back...", '/admin'%></p>
+  </div>
+</div>

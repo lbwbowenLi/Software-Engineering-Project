@@ -1,0 +1,91 @@
+<div class = "row">
+  <h1>Add Question</h1><hr>    
+</div>
+
+<div class = "row">
+  <div class = "col-sm-4"> </div>
+  <div class = "col-sm-4">
+    <div class = "row">
+      <ul class="list-group">
+        <li class="list-group-item text-right">
+          <span class="pull-left"><strong>search information</strong></span>
+          <p>
+           <%= form_tag :action => 'performsearch'  do %>
+           <%= text_field_tag :search, params[:search], placeholder: "Search dataset" %>
+           <%= submit_tag "Search", :name => "submit", class: "btn btn-success" %>
+           <%= submit_tag "Search for all result", :name => "submit", class: "btn btn-success" %>
+          <% end %>
+          </p>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class = "col-sm-2"> </div>
+<div>
+  <%= form_for @poweradmin, :url => full_group_path, :method => :post do |f| %> 
+  <% if @new_temp_record %>
+    <%= f.hidden_field :temppsr_id, :value => @new_temp_record.id %>
+  <% end %>  
+  <div style="border:1px solid black; width:700px;height:200px; overflow-y:auto;">
+    <div>
+  
+      <div style="border:1px solid white; width:700px; height:200px; float:left;">
+        <div class = "row">
+          <div class = "col-sm-11">
+            <div class="table-responsive">
+                
+                <table class = "table-bordered">
+                  <thead>
+                    <tr>
+                      <th class = "col-md-2">Accession</th>
+                      <th class = "col-md-9">Name</th>
+                      <th class = "col-md-1">Select Button</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <% if @dataset %>            
+                      <% @dataset.each do |k,v| %>            
+                    <tr>
+                      <td class = "col-md-2"> <%= link_to k, "http://www.ebi.ac.uk/arrayexpress/experiments/#{k}", :target => '_blank' %></td>
+                      <td class = "col-md-9"> <%= v %> </td>
+                      <td class = "col-md-1"> <%= check_box_tag 'selected_keys[]', k-%></td>
+                    </tr>
+                      <%end %> 
+                    <% end %>   
+                  </tbody>
+                </table>
+                             
+   
+            </div>        
+          </div>
+        </div>
+      </div>
+      
+      <div style="clear:both"></div>
+  
+    </div>
+  </div>
+  <hr> 
+    <%= button_tag(:type => "submit",:class => "btn btn-primary", :value => 'add_q')do %>
+      <i class="glyphicon glyphicon-chevron-right"></i>Proceed to Add Question
+    <% end %>
+    <%= button_tag(:type => "submit",:class => "btn btn-primary", :name => "commit", :value => 'save_back')do %>
+      <i class="glyphicon glyphicon-refresh"></i>Save and Back
+    <% end %>
+  <% end %>
+</div>
+
+<p><br></p>           
+<div class = "row">
+  <div class = "col-sm-3">
+    <%= link_to admins_show_path,
+    :class => "btn btn-warning btn-block" do %>
+    <i class="glyphicon glyphicon-chevron-left"></i> Discard Changes and Back to Admin
+    <% end %>     
+  </div>  
+  <div class = "col-sm-9">
+  </div> 
+</div> 
+
+
+

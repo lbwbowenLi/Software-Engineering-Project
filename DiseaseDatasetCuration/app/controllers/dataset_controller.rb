@@ -1,0 +1,2 @@
+class DatasetController < ApplicationController
+end

@@ -1,0 +1,60 @@
+<% provide(:title, 'Profile') %>
+<div class="row">
+
+  <div class="col-sm-3">
+    <section class="user_info">
+      <h1>Profile</h1>
+      <ul class="list-group">
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Name</strong></span> <%= @user.name %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span> <%= @user.email %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Joined</strong></span> <%= @user.created_at %></li>
+        <li class="list-group-item text-right"><span class="pull-left"><strong>Submissions</strong></span> <%= @count %></li>
+      </ul>
+
+
+      <%= link_to "START!", '/diseases', class: "btn btn-primary center-block" %>
+      <% if current_user.admin? %>
+        <%= link_to "Admin", '/admin', class: "btn btn-success center-block" %>
+        <%= link_to "All Users", '/admin/allusers', class: "btn btn-info center-block" %>
+        <%= link_to "Add Question", full_search_path, class: "btn btn-warning center-block" %>
+        <%= link_to "Groups", groups_path, class: "btn btn-primary center-block" %>
+        <!--<% if !(current_user.group_admin?) %>-->
+        <!--  <%= link_to "Promote/Demote", '/admin/promote', class: "btn btn-danger center-block" %>-->
+        <!--<% end %>-->
+      <% end %>
+      
+
+    </section>
+  </div>
+
+  <div class="col-sm-9">
+    <% if @submissions!=nil %>
+    
+    <div class="table-responsive">
+        <table class = "table">
+      <thead>
+        <tr>
+          <th class = "col-md-1">Question</th>
+          <th class = "col-md-1">Accession</th>
+          <th class = "col-md-1">Choice</th>
+          <th class = "col-md-1">reason</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @submissions.each do |sub| %> 
+          <tr>  
+            <td><%= sub['question'] %>
+            <td><%= link_to sub['accession'], "http://www.ebi.ac.uk/arrayexpress/experiments/#{sub['accession']}/?query=#{sub['question']}", :target => '_blank' %></td>
+            <td><%= sub['choice'] %>
+            <td><%= sub['reason'] %>
+          </tr>
+        <% end %>
+      </tbody>
+      </table>
+    </div>
+    <% else %>
+      <h3>You don't have any submissions yet!</h3>
+      <h3>Click <%= link_to "Here", '/diseases'%> to begin</h3>
+    <% end %>
+  </div>
+</div>

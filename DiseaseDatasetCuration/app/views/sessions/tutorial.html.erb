@@ -1,0 +1,140 @@
+<% provide(:title,'Data Curation Manual') %>
+	<h1> Data Curation Manual </h1>
+	<hr>
+
+	<h2 style="text-align:left;"> 1 Website </h2>
+	<p> <%= link_to "• https://www.ebi.ac.uk/arrayexpress", 
+											'https://www.ebi.ac.uk/arrayexpress'%> </p>
+	<hr>
+
+	<h2 style="text-align:left;"> 2 Filter selection </h2>
+	<p> • By organism - Homo sapiens<br>• By experiment type - rna assay</p>
+	<hr>
+
+	<h2 style="text-align:left;"> 3 Procedure </h2>
+	<h3 style="text-align:left;"> 3.1 Search disease name by using the correct filter in ArrayExpress </h3>
+	<h3 style="text-align:left;"> 3.2 For each Accession, check the following </h3>
+  <br>
+  
+	<h4> 3.2.1 Check if this accession is about MicroRNA </h4>
+	<p>The following two datasets are all examples of MicroRNA<br>
+	&emsp;• Huntington’s Disease, E-GEOD-64977<br><br></p>
+
+	<img src="/tutorial/1_Huntington’s Disease, E-GEOD-64977.png" 
+	    alt="E-GEOD-64977" style="width:1164px;height:630px;">
+	<p><br><br>&emsp;• Encephalitis, E-GEOD-55069<br><br></p>
+	<img src="/tutorial/2_Encephalitis, E-GEOD-55069.png"
+	    alt="E-GEOD-55069" style="width:1164px;height:630px;">
+	<p><br><br></p>
+
+	<h4> 3.2.2 Check if it has enough replicates </h4>
+	<p>&emsp;• Creutzfeldt-Jakob Disease, E-GEOD-30643<br><br></p>
+	<img src="/tutorial/3_Creutzfeldt-Jakob Disease, E-GEOD-30643.png"
+	    alt="E-GEOD-30643" style="width:1164px;height:630px;">
+	<p><br><br></p>
+
+	<h4> 3.2.3 Check if it has disease vs. control </h4>
+	<p>&emsp;• Tuberous Sclerosis, E-GEOD-9715<br></p>
+	<p>It is hard to determine whether there is disease and control or not sometimes. 
+	The following dataset is about a disease called Tuberous Sclerosis:</p>
+	<p><br><br></p>
+	<img src="/tutorial/4_Tuberous Sclerosis, E-GEOD-9715.png" 
+	    alt="E-GEOD-9715"  style="width:1164px;height:630px;">
+	<p><br><br></p>
+	<p>If we check its samples like what we usually do, we will get the following: </p>
+	<p><br><br></p>
+	<img src="/tutorial/5_Tuberous samples.png" 
+	    alt="E-GEOD-9715_samples" style="width:1164px;height:630px;">
+	<p><br><br></p>
+	<p>At this time, we need to check its GEO database, by click Links GEO - GSE9715 
+	at the bottom of its main page: </p>
+	<p><br><br></p>
+	<img src="/tutorial/6_Tuberous GEO.png" 
+	    alt="E-GEOD-9715_GEO" style="width:1164px;height:630px;">
+	<p><br><br></p>
+	<p>Now, we can know what their samples are come from ‘N1’, ‘AF’ and ‘PF’ patients.
+	To figure out what ‘N1’, ‘AF’, ‘PF’ mean, we need to check it description again: </p>
+	<p><br><br></p>
+	<img src="/tutorial/7_Tuberous results.png" 
+	    alt="E-GEOD-9715_results" style="width:1164px;height:630px;">
+	<p><br><br></p>
+	<p>Now, we know they are comparing facial angiofibromas(AF) 
+	and periungual fibromas(PF) to normal-appearing(N1), so it is relevant.</p>
+	<p><br><br></p>
+
+	<h4> 3.2.4 Check if it is biomarker</h4>
+	<p>&emsp;• Narcolepsy, E-GEOD-21592<br></p>
+	<p>The following dataset is about narcolepsy, which is a neurological disorder.
+	But the dataset source is from blood.</p>
+	<p><br><br></p>
+	<img src="/tutorial/8_Narcolepsy, E-GEOD-21592.png" 
+	    alt="E-GEOD-21592" style="width:1164px;height:630px;">
+	<p><br><br></p>
+	<p>So, it is may be a biomarker. Check the dataset description now:</p>
+	<p><br><br></p>
+	<img src="/tutorial/9_Narcolepsy, E-GEOD-21592_marker.png" 
+	    alt="E-GEOD-21592_marker" style="width:1164px;height:630px;">
+	<p><br><br></p>
+	<p>You can see the goal of this study is to find the biomarker. 
+	The disease signature must reflect the underlying biological basis of the disease.
+	For biomarker study, the goal is not to investigate disease mechanisms.
+	Thus, data sets collected for biomarker study can not be used for drug repositioning.</p>
+	<hr>
+
+
+	<h2>4 Do It Yourself </h2>
+	<p>Check the following datasets:</p>
+	<p>
+	&emsp;• Huntington’s Disease, E-MTAB-2206<br>
+	&emsp;• Dravet Syndrome, E-GEOD-46472<br>
+	&emsp;• Tuberous Sclerosis, E-GEOD-6002<br>
+	&emsp;• Huntington’s Disease, E-GEOD-1751<br>
+	</p>
+	<hr>
+
+	<h2>5 Newly added</h2>
+	<p>
+	&emsp;
+	• Do not focus too much on confirming whether it is about mRNA.
+	The dataset should be about mRNA by default.
+	Just pay a attention for MicroRNA(miRNA).
+	<br>
+	&emsp;
+	• Check whether it is disease vs control:
+	</p>
+	<p>Acute megakaryoblastic leukemia, E-GEOD-16677</p>
+	<p>Based on the title of this dataset, it is study the Down Syndrome (DS)-AMKL
+	and non-DS AMKL samples. There is no healthy sample.</p>
+	<p><br><br></p>
+	<img src="/tutorial/10_Do_it_yourself1.png" 
+	    alt="Do_it_yourself1" style="width:1164px;height:630px;">
+	<p>
+	<br><br>&emsp;
+	• If you see a comprehensive dataset, mark as comprehensive.
+	<br>Acute myeloblastic leukemia with maturation, E-MTAB-3732
+	</p>
+	<p><br><br></p>
+	<img src="/tutorial/11_Do_it_yourself2.png" 
+	    alt="Do_it_yourself2" style="width:1164px;height:630px;">
+
+	<p>
+	<br><br>&emsp;
+	• If the dataset is about methylation, it is irrelevant.
+	<br>Ulcerative colitis, E-GEOD-27899
+	</p>
+	<p><br><br></p>
+	<img src="/tutorial/12_Do_it_yourself3.png" 
+	    alt="Do_it_yourself3" style="width:1164px;height:630px;">
+	<hr>
+
+	<p>
+		<% if logged_in? %>
+			<%= link_to "Back to profile...", '/profile' %>
+		<% else %>
+			<%= link_to "Back to Login page...", root_path %>
+		<% end %>
+	</p>
+	<p>
+		<%= link_to "Download this tutorial as pdf", download_help_path %>
+	</p>
+  <p style="text-align: right;"><%= link_to "Back to top",'/tutorial' %></p>

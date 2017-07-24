@@ -1,0 +1,87 @@
+<div class = "row">
+  <h3>Choose Group Admin from Group</h3>
+</div>
+<div>
+  <% if !@all_groups.nil? %>
+    <% @all_groups.each do |grp| %>
+      <%= render grp %>
+      <p>GroupAdmin: 
+      <%= User.find_by_id(grp.admin_uid).name %>
+      <br>Group Users:</p>
+      
+      <% if !grp.get_users.nil? %>
+        <div class = "row">
+          <div class = "col-sm-12">
+            <div class="table-responsive">
+              <%= form_for @poweradmin, :url => assign_group_path(grp),:method => :post do %>                 
+              <table class = "table-bordered">
+                <thead>
+                  <tr>
+                    <th class = "col-md-1">ID</th>
+                    <th class = "col-md-3">Email</th>
+                    <th class = "col-md-3">Name</th>
+                    <th class = "col-md-1">Accuracy#</th>
+                    <th class = "col-md-2">GroupAdmin?</th>
+                    <th class = "col-md-2">Select Button</th>
+                  </tr>
+                </thead>
+                <tbody>
+   
+                    <% grp.get_users.each do |user| %>
+                      <tr>
+                        <td class = "col-md-1"><%= user.id %></td>
+                        <td class = "col-md-3"><%= user.email %></td>
+                        <td class = "col-md-3"><%= user.name %></td>
+                        <td class = "col-md-1"><%= user.accuracy.round(3) %></td>
+                        <td class = "col-md-2"><%= (user.group_admin?)? "True":"False" %></td>
+                        <td class = "col-md-2"><%= radio_button_tag 'user_ids[]', user.id -%></td>
+                      </tr> 
+                    <% end %>
+                </tbody>
+              </table>
+              <hr>
+              <div class = "row">
+                <div class = "col-sm-4 text-center">
+                </div>
+                <div class = "col-sm-4 text-center">
+                  <%= button_tag(:type => "submit",:class => "btn btn-success btn-block")do %>
+                    <i class="glyphicon glyphicon-refresh"></i>Change Group Admin to Selected
+                  <% end %>
+                </div>        
+                <div class = "col-sm-4 text-center">
+                </div>        
+              </div>              
+              <% end %> 
+            </div>
+          </div>    
+        </div>
+      <% end %>
+      <p></p>
+      <hr>
+    <% end %>    
+  <% else %>
+    <h3>There's no groups yet!</h3>
+    <h3>Click <%= link_to "Here", '/group_create_path'%> to create a group</h3>
+  <% end %>
+</div>      
+
+<div class = "row">
+  <% if !@all_groups.nil? %>
+    <%= will_paginate @all_groups, renderer: BootstrapPagination::Rails %>
+  <% end  %>
+</div>
+      
+<p><br><br><br></p>           
+<div class = "row">
+  <div class = "col-sm-2">
+    <%= link_to admins_show_path,
+    :class => "btn btn-warning btn-block" do %>
+    <i class="glyphicon glyphicon-chevron-left"></i> Back to Admin
+    <% end %>     
+  </div>  
+  <div class = "col-sm-10">
+  </div> 
+</div>      
+      
+
+

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+g1:
+  id: 1
+  name: G1
+  description: MyText
+  group_level: MyString
+  admin_uid: 1
+
+g2:
+  id: 2
+  name: G2
+  description: MyText
+  group_level: MyString
+  admin_uid: 2
+
+g3:
+  id: 3
+  name: G3
+  description: MyText
+  group_level: MyString
+  admin_uid: 3  
+
+g4:
+  id: 4
+  name: G4
+  description: MyText
+  group_level: MyString 
+  admin_uid: 4 

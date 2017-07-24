@@ -1,0 +1,14 @@
+<tr>
+                <td><%= user.id %></td>
+                <td><%= user.email %></td>
+                <td><%= user.name %></td>
+                <% if Fullsubmission.find_by_user_id(user.id)!=nil %>
+                <td><%= user.fullsubmissions.count %></td>
+                <td><%= user.accuracy.round(3) %></td>
+                <% else %>
+                <td>0</td>
+                <td>0</td>
+                <% end %>
+                <td><%= (user.admin?)? "Yes":"User" %></td>
+                <td><%= (user.admin?)? "Yes":"-" %></td>                
+</tr>

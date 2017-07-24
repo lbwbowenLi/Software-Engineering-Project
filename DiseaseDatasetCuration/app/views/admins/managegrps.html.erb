@@ -1,0 +1,83 @@
+<div class = "row">
+  <h2>Reassign Group Admins</h3>
+</div>
+
+<div>
+  <% if !@all_groups.nil? %>  
+    <% @all_groups.each do |grp| %>  
+    <div class = "row">
+      <div class = "col-sm-6">  
+      <p><h3 style="text-align:left;">Current Admin for Group <%= grp.id %> (<%= grp.name %>): </h3><br>
+      Name: <mark><%= User.find_by_id(grp.admin_uid).name %></mark>
+      </p>
+      <hr>  
+      </div>
+      <div class = "col-sm-6">
+      <p><h3 style="text-align:left;">Current Available Group Admins:</h3><br></p>  
+        <div class="table-responsive">
+          <%= form_for @poweradmin, :url => rearrange_grpadmin_path(grp),:method => :post do %>                 
+          <table class = "table-bordered">
+            <thead>
+              <tr>
+                <th class = "col-md-1">ID</th>
+                <th class = "col-md-4">Email</th>
+                <th class = "col-md-4">Name</th>
+                <th class = "col-md-1">Accuracy#</th>
+                <th class = "col-md-2">Select Button</th>
+              </tr>
+            </thead>      
+            <tbody>
+              <% @all_grp_admins.each do |user| %>
+              <tr>
+                <td class = "col-md-1"><%= user.id %></td>
+                <td class = "col-md-4"><%= user.email %></td>
+                <td class = "col-md-4"><%= user.name %></td>
+                <td class = "col-md-1"><%= user.accuracy.round(3) %></td>
+                <td class = "col-md-2"><%= radio_button_tag 'gadmin_ids[]', user.id -%></td>
+              </tr> 
+              <% end %>
+            </tbody>        
+          </table>
+          <hr>   
+          <div class = "row">
+            <div class = "col-sm-3 text-center">
+            </div>
+            <div class = "col-sm-6 text-center">
+              <%= button_tag(:type => "submit",:class => "btn btn-success btn-block")do %>
+                <i class="glyphicon glyphicon-refresh"></i>Change Group Admin to Selected
+              <% end %>
+            </div>        
+            <div class = "col-sm-3 text-center">
+            </div>        
+          </div>
+          <% end %>             
+        </div>
+
+      </div>
+    <% end %>
+  <% else %>
+    <h3>There's no groups yet!</h3>
+    <h3>Click <%= link_to "Here", '/group_create_path'%> to create a group</h3>  
+  <% end %>
+</div>
+
+<div class = "row">
+  <% if !@all_groups.nil? %>
+    <%= will_paginate @all_groups, renderer: BootstrapPagination::Rails %>
+  <% end  %>
+</div>
+
+
+<hr>    
+<p><br><br><br></p>           
+<div class = "row">
+  <div class = "col-sm-2">
+    <%= link_to admins_show_path,
+    :class => "btn btn-warning btn-block" do %>
+    <i class="glyphicon glyphicon-chevron-left"></i> Back to Admin
+    <% end %>     
+  </div>  
+  <div class = "col-sm-10">
+  </div> 
+</div>  
+

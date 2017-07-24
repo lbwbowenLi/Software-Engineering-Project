@@ -1,0 +1,163 @@
+<div class = "row">
+  <h1>Add Question</h1>
+</div>
+<div class = "row">
+  <div class = "col-sm-8">
+  <h2>Selected Information:</h2><hr>
+     <h3 style="text-align:left;">Dataset Selected:</h3>
+  </p>
+  
+    <div class="table-responsive">
+                
+                <table class = "table-bordered">
+                  <thead>
+                    <tr>
+                      <th class = "col-md-3">Accession</th>
+                      <th class = "col-md-9">Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <% if @show_selected_datasets %>            
+                      <% @show_selected_datasets.each do |k,v| %>            
+                    <tr>
+                      <td class = "col-md-3"> <%= k %> </td>
+                      <td class = "col-md-9"> <%= v %> </td>
+                    </tr>
+                      <%end %> 
+                    <% end %>   
+                  </tbody>
+                </table>
+                             
+    <hr>
+    </div>      
+  </div>
+  
+  <div class = "col-sm-4"></div>
+</div>
+
+
+<p></p>
+<div class = "row">
+  <div class = "col-sm-8">
+  <h2>Select Groups to Send Question to:</h2>
+  <hr>
+  </div>
+  <div class = "col-sm-4"></div>
+</div>
+
+
+
+<div>
+  <%= form_for @full_question, :url => fullquestions_path, :method => :post do |f| %> 
+  <% if @temp_record %>
+    <%= f.hidden_field :temppsr_id, :value => @temp_record %>
+    <%= f.hidden_field :sakeys, :value => @selected_accession_keys %>
+  <% end %>  
+  <div style="border:1px solid black; width:700px;height:200px; overflow-y:auto;">
+    <div>
+      <div style="border:1px solid white; width:700px; height:200px; float:left;">
+        <div class = "row">
+          <div class = "col-sm-11">
+            <div class="table-responsive">
+                
+                <table class = "table-bordered">
+                  <thead>
+                    <tr>
+                      <th class = "col-md-2">Name</th>
+                      <th class = "col-md-9">Description</th>
+                      <th class = "col-md-1">Select Button</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                   <% if @all_groups %>            
+                      <% @all_groups.each do |grp| %>            
+                    <tr>
+                      <td class = "col-md-2"> <%= grp.name %> </td>
+                      <td class = "col-md-9"> <%= grp.description %> </td>
+                      <td class = "col-md-1"> <%= check_box_tag 'selected_grp_ids[]', grp.id, true -%></td>
+                    </tr>
+                      <%end %> 
+                    <% end %>   
+                  </tbody>
+                </table>
+                           
+   
+            </div> 
+          </div>
+        </div>
+      </div>
+      
+      <div style="clear:both"></div>
+  
+    </div>
+  </div>
+   
+
+  <p></p>
+  <div class = "row">
+    <div class = "col-sm-15">
+    <h2>Edit Question:</h2>
+    <% if (@all_questions!=nil)&&!@all_questions.empty? %> 
+    <hr> <h3 style="text-align:left;">Questions:</h3>
+    <div class="table-responsive">
+                
+                <table class = "table-bordered">
+                  <thead>
+                    <tr>
+                      <th class = "col-md-10">Question</th>
+                      <th class = "col-md-5">Answer</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <% @all_questions.each do |k,v| %>            
+                    <tr>
+                      <td class = "col-md-3"> <%= k %> </td>
+                      <td class = "col-md-9"> <%= Fullquestion.convert_ans(v) %> </td>
+                    </tr>
+                      <%end %> 
+  
+                  </tbody>
+                </table>
+          <hr>
+    </div> 
+    <% end %> 
+
+    <hr>
+      <%= label_tag 'Question Description:' %>
+      <%= text_field_tag 'qcontent' %><br />
+      <%= label_tag 'Answer:' %>
+    
+    </div>
+    <div class = "col-sm-4"></div>
+  </div>
+    
+
+    <div class = row>
+      <div class = "col-sm-4">
+                <table class = "table">
+                  <tbody>
+                      <% (1..3).each do |i| %>        
+                    <tr class="bg-warning">
+                      <td class = "col-md-2"> <%= @ans[i-1] %> </td>
+                      <% if i == 3 %>
+                        <td class = "col-md-2"> <%= radio_button_tag 'selected_ans[]', i, true -%> </td>
+                      <% else %>
+                        <td class = "col-md-2"> <%= radio_button_tag 'selected_ans[]', i -%> </td>
+                      <% end %>
+                    </tr>
+                      <%end %> 
+                  </tbody>
+                </table>
+      </div>
+      <div class = "col-sm-8"> 
+      </div>
+    </div>
+    <%= button_tag(:type => "submit",:class => "btn btn-primary", :name => "commit", :value => 'add_another')do %>
+      <i class="glyphicon glyphicon-refresh"></i>Add another Question
+    <% end %>
+    <%= button_tag(:type => "submit",:class => "btn btn-danger", :name => "commit", :value => 'complete')do %>
+      <i class="glyphicon glyphicon-refresh"></i>Save Question and Complete
+    <% end %>
+  <% end %>
+</div>
+

@@ -1,0 +1,78 @@
+<div class = "row">
+  <h3>Promote/Demote</h3>
+</div>
+
+
+<div class = "row">
+
+  <div class = "col-sm-10"></div>
+
+  <div class = "col-sm-2">
+    <div class = row>
+      <%= form_tag admin_promote_path(), :method => :post, :id => "query_user_form" do%>
+      <%= search_field_tag 'query', nil, :class => 'special_input', :placeholder => 'Search Email...', :id => 'query_user' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class = "row">
+  <div class = "col-sm-12">
+      <div class="table-responsive">
+        <table class = "table">
+          <thead>
+            <tr>
+              <th class = "col-md-1"><%= link_to "ID", admin_promote_path(:order => "id") %></th>
+              <th class = "col-md-4">Email</th>
+              <th class = "col-md-3">Name</th>
+              <th class = "col-md-2"><%= link_to "Accuracy#", admin_promote_path(:order => "accuracy") %></th>
+              <th class = "col-md-3">Level</th>
+              <th class = "col-md-3">Operate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if !@users.nil? %>
+              <% @users.each do |user| %>
+                <% next if user.id ==1 %>    
+                <tr>
+                  <th><%= user.id -%></th>
+                  <th><%= user.email -%></th>
+                  <th><%= user.name -%></th>
+                  <th><%= user.accuracy -%></th>
+                  <th><%= (user.group_admin?)? "Admin":"User" %></th>
+                  <th><%= link_to (user.group_admin?)? "Demote":"Promote", admin_promote_path(:operate => user.id) %></th>
+                <tr>
+              <% end %>  
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
+
+
+<div class = "row">
+  <% if !@users.nil? %>
+    <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+  <% end  %>
+</div>
+
+<hr>
+<p><br></p>           
+<div class = "row">
+  <div class = "col-sm-2">
+    <%= link_to admins_show_path,
+    :class => "btn btn-warning btn-block" do %>
+    <i class="glyphicon glyphicon-chevron-left"></i> Back to Main Page
+    <% end %>     
+  </div>  
+  <div class = "col-sm-10">
+  </div> 
+</div>  
+
+
+
+
+
+
+

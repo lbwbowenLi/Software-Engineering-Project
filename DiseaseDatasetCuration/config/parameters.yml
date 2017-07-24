@@ -1,0 +1,4 @@
+---
+num_item_per_page: 10
+closing_threshold: 10
+dist_threshold: 0.8

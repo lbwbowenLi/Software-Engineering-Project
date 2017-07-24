@@ -1,0 +1,12 @@
+<tr>
+    <td class="text-center"><%= fullquestion.id %></td>
+    <td class="text-center"><%= fullquestion.qcontent %></td>
+    <td class="text-center"><%= Fullquestion.convert_ans(fullquestion.qanswer) %>
+    </p><%= link_to 'Yes', {:controller => "fullquestions", :action => "modifyquestion", :key => fullquestion.id, :answer => "yes"} %>,
+    <%= link_to 'No', {:controller => "fullquestions", :action => "modifyquestion", :key => fullquestion.id, :answer => "no"} %>
+    <td class="text-center"><%= fullquestion.closed %></td>
+    <td class="text-center"><%= fullquestion.yes_users %></td>
+    <td class="text-center"><%= fullquestion.no_users %></td>
+    <td class="text-center"><%= fullquestion.users.count %></td>
+    <td class="text-center"><%= link_to 'Delete', {:controller => "fullquestions", :action => "modifyquestion", :key => fullquestion.id, :answer => "delete"} ,:onclick => "return confirm('Are you sure you want to delete this question?')" %></td>
+</tr>

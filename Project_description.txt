@@ -1,0 +1,75 @@
+Project description:
+~~~
+The recently advances in biotechnologies have enabled the generation
+of a large amount of gene expression data that are publicly available
+on [ArrayExpress](http://www.ebi.ac.uk/arrayexpress) or
+[GEO](http://www.ncbi.nlm.nih.gov/geo). But data in these public
+repositories are usually neither well organized nor consistently
+annotated making it difficult to fully unleash the power of these
+data.
+
+The goal of this project is to design a website which serves as a
+basic framework for crowdsourcing of biodata curation. The website
+should have the following features (more detailed requirements and
+feedbacks will be provided as the project evolves).
+
+1. An interested individual should be able to register on the website
+as a data curator.
+
+2. Training materials (we have something already but in a document
+format) should be rendered to the curators in a user-friendly fashion
+so that even people without much biological background will be able to
+easily learn the necessary curation skills. Some examples of good user
+interfaces can be found at <eternagame.org>.
+
+3. The website should record the curation results of these registered
+data curators which will be accessed both automatically (by comparing
+the results among curators using, for example, weighted majority vote)
+and manually (for the cases that are hard to be solved automatically).
+Some ideas about this can be borrowed from
+[reCAPTCHA](http://science.sciencemag.org/content/321/5895/1465.full).
+There should be a way to evaluate curators based on their past
+performance. Thus, the results from curators who have good curation
+history should be trusted more in deriving the correct results.
+
+FYI. Here is our past curation outcome without such a website using
+only a limited number of people. If there were such a website, it
+would allow many people to contribute to this effort. Such crowdsource
+approach would tremendously speed up the curation of large-scale
+biological data. The high-quality curation results would allow more
+efficient use of such data which will significantly impact biomedicine
+research in this big data era.
+http://bioinformatics.oxfordjournals.org/content/31/24/4038
+~~~
+
+main functions
+~~~
+- registration
+- interactive training
+- curation result recording
+- User performance assessment: majority vote or manual assessment by admin
+- scoring of the user by their performance (should be able to filter
+out the users with low performance.
+- administration
+ - automatically assign the dataset to users (admin only need to
+provide the term for searching in ArrayExpress or GEO. the data set
+should be automatically extracted from those public websites.)
+ - design curation questions
+ - terminate the curation of a(a set of) dataset(s).
+- user forum
+~~~
+
+Improvement
+~~~
+recording: may need to improve the database structure etc.
+admin: automatic assignment, question design, curation termination.
+registration: supporting Gmail /facebook etc.
+~~~
+
+new feature
+~~~
+training - interactive (eternagame.org or
+http://bioinformatics.ua.pt/diseasecard/)
+user assessment & scoring
+forum
+~~~

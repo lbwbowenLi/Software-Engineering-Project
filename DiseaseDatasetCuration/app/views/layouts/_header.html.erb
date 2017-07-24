@@ -1,0 +1,44 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <% if logged_in? %> 
+      <%= link_to "Genetic Dataset Curation", '/profile',id: "logo" %>
+    <% else %>
+      <%= link_to "Genetic Dataset Curation", root_path,id: "logo" %>
+    <% end %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <% if logged_in? %>
+            <%= link_to "Home", '/profile' %>
+          <% else %>
+            <%= link_to "Home", root_path %>
+          <% end %>
+        </li>
+        <li><%= link_to "Tutorial", '/tutorial' %></li>
+        <% if logged_in? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              Hello, <%= user_name %> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", '/profile' %></li>
+              <% if admin? %>
+                <li><%= link_to "Admin", '/admin' %></li>
+                <li><%= link_to "Users", '/admin/allusers' %></li>
+                <li><%= link_to "Configuration", '/config' %></li>
+                <li><%= link_to "Groups", groups_path %></li>
+              <% end %>
+
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

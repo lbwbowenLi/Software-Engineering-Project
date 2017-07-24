@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  disease: MyString
+  description: MyText
+  is_true: false
+
+two:
+  disease: MyString
+  description: MyText
+  is_true: false
